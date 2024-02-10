@@ -1,24 +1,31 @@
-*{
+* {
   padding: 0;
   margin: 0;
 }
 
-html, body{
-  margin: 0;
+header{
+  margin-top: 0;
 }
 
-.menu{
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
   width: 100%;
   height: 71px;
   background-color: #15253F;
+  position: relative;
+  top: 0;
 }
 
-.logo{
+.logo {
   width: 107px;
   height: 71px;
 }
 
-.menu-burguer{
+.menu-burguer {
   width: 30px;
   height: 30px;
   display: inline-block;
@@ -27,18 +34,18 @@ html, body{
   margin-top: 21px;
 }
 
-.barra{
+.barra {
   width: 30px;
   height: 5px;
   background-color: #A8957C;
   margin: 4px 0;
 }
 
-body{
+body {
   background-color: white;
 }
 
-.search-bar{
+.search-bar {
   width: 350px;
   height: 41px;
   border-radius: 8px;
@@ -49,16 +56,16 @@ body{
   text-align: justify;
   margin: 16px;
   margin-left: 16px;
+  position: relative; /* Adicionado */
 }
 
-img.lupa{
+img.lupa {
   position: absolute;
   margin-top: 12px;
-  display: inline-block;
-  padding-left: 320px;
+  margin-left: 320px;
 }
 
-.banner{
+.banner {
   width: 350px;
   height: 195px;
   background-color: rgba(21, 37, 63, 50%);
@@ -66,13 +73,13 @@ img.lupa{
   margin: 16px;
 }
 
-.busca{
+.busca {
   position: absolute;
   margin-top: 10px;
   padding-left: 8px;
 }
 
-.texto-1{
+.texto-1 {
   font-family: 'Poppins', sans-serif;
   text-align: center;
   font-size: 23px;
@@ -80,14 +87,12 @@ img.lupa{
   color: #15253F;
 }
 
-.container{
-  width: 280px;
-  height: 127px;
-  display: inline-block;
-  vertical-align: middle;
+.container {
+  display: flex; /* Alterado para flex container */
+  justify-content: space-between; /* Espaço uniforme entre os itens */
 }
 
-.texto-container{
+.texto-container {
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
@@ -97,11 +102,38 @@ img.lupa{
   text-align: right;
 }
 
-.card-1, .card-2, .card-3, .card-4{
+.card {
   width: 141px;
   height: 56px;
   background-color: #A8957C;
   color: white;
   margin: 15px 14px;
   border-radius: 8px;
+  position: relative; /* Adicionado */
+}
+
+/* Adicionado */
+.card.expandido {
+  height: auto;
+}
+
+.opcoes {
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Adicionado */
+.card.expandido .opcoes {
+  display: block;
+}
+
+.card.expandido .texto-container {
+  padding-bottom: 20px;
 }

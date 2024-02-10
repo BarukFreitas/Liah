@@ -1,49 +1,68 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
+
+const Servico = ({ nome, opcoes }) => {
+  const [mostrarOpcoes, setMostrarOpcoes] = useState(false);
+
+  const handleClique = () => {
+    setMostrarOpcoes(!mostrarOpcoes);
+  };
+
+  return (
+    <div className={`card ${mostrarOpcoes ? 'expandido' : ''}`} onClick={handleClique}>
+      <img src={`src/assets/icone-${nome}.svg`} alt={nome} />
+      <p className="texto-container">{nome}</p>
+      {mostrarOpcoes && (
+        <div className="opcoes">
+          <p>Opções para {nome}:</p>
+          <ul>
+            {opcoes.map((opcao, index) => (
+              <li key={index}>{opcao}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
 
 function App() {
   return (
     <>
-    <header className="menu">
-      <img src="imagens/logo.png" className="logo" alt="Logo" />
-      <a href="#">
-        <div className="menu-burguer">
-          <div className="barra"></div>
-          <div className="barra"></div>
-          <div className="barra"></div>
-        </div>
-      </a>
-    </header>
-    <div className="search-bar" aria-placeholder="Buscar Serviço">
-      <img src="imagens/icone-lupa.svg" className="lupa" alt="Ícone de Lupa" />
-      <p className="busca">Buscar Serviço...</p>
-    </div>
-    <div className="banner">
-      <p>Banner</p>
-    </div>
-    <span className="texto-1">
-      <p>Qual serviço gostaria de agendar?</p>
-    </span>
-    <div className="container">
-      <div className="card-1">
-        <img src="imagens/icone-cabelo.svg" alt="Ícone Cabelo" />
-        <p className="texto-container">Cabelo</p>
+      <header className="menu">
+        <img src="src/assets/logo.png" className="logo" alt="Logo" />
+        <a href="#">
+          <div className="menu-burguer">
+            <div className="barra"></div>
+            <div className="barra"></div>
+            <div className="barra"></div>
+          </div>
+        </a>
+      </header>
+      <div className="search-bar">
+        <img src="src/assets/icone-lupa.svg" className="lupa" alt="Lupa" />
+        <p className="busca">Buscar Serviço...</p>
       </div>
-      <div className="card-2">
-        <img src="imagens/icone-barba.svg" alt="Ícone Barba" />
-        <p className="texto-container">Barba</p>
+      <div className="banner">
+        <p>Banner</p>
       </div>
-      <div className="card-3">
-        <img src="imagens/icone-cabelo-e-barba.svg" alt="Ícone Cabelo e Barba" />
-        <p className="texto-container">Cabelo e barba</p>
+
+      <span className="texto-1">
+        <p>Qual serviço gostaria de agendar?</p>
+      </span>
+
+      <div className="container">
+        <Servico nome="cabelo" opcoes={['Corte Tradicional', 'Corte Na Tesoura', 'Degradê Navalhado',
+      'Corte Degradê', 'Undercut Feminino']} />
+        <Servico nome="barba" opcoes={['Barba simples', 'Barba completa']} />
+        <Servico nome="cabelo-e-barba" opcoes={['Degradê Navalhado + Barba', 'Degradê + Barba',
+        'Corte Tradicional + Barba', 'Corte na Tesura + Barba', 'Cabelo + Botox + Barba',
+        'Barba + Pezinho', 'Corte + Hidratação', 'Corte + Sobrancelha', 'Depilação Orelha + Nariz']} />
+        <Servico nome="outros" opcoes={['Depilação Nariz', 'Depilação Orelha', 'Hidratação',
+        'Limpeza de Pele (Máscara Black)', 'Botox']} />
       </div>
-      <div className="card-4">
-        <img src="imagens/icone-outros.svg" alt="Ícone Outros" />
-        <p className="texto-container">Outros</p>
-      </div>
-    </div>
-  </>
-);
+    </>
+  );
 }
 
-export default App
+export default App;
