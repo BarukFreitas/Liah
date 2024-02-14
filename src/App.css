@@ -52,12 +52,35 @@ body {
   background-color: #dadada;
   color: #9a9a9a;
   font-style: italic;
-  font-weight: 300px;
+  font-weight: 300;
   text-align: justify;
   margin: 16px;
   margin-left: 16px;
-  position: relative; /* Adicionado */
+  position: relative;
 }
+
+.search-bar input {
+  width: calc(100% - 16px); /* Corrige a largura do input */
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: #dadada;
+  color: #9a9a9a;
+  font-style: italic;
+  font-weight: 300;
+  text-align: justify;
+  padding: 0 16px;
+  outline: none;
+}
+
+.search-bar .lupa {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Centraliza verticalmente */
+  margin-left: 8px; /* Ajusta a posição da lupa */
+}
+
+
 
 img.lupa {
   position: absolute;

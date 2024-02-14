@@ -41,7 +41,7 @@ function App() {
       </header>
       <div className="search-bar">
         <img src="src/assets/icone-lupa.svg" className="lupa" alt="Lupa" />
-        <p className="busca">Buscar Serviço...</p>
+        <input type="text" className='busca' placeholder='Buscar Serviço...' />
       </div>
       <div className="banner">
         <p>Banner</p>
